@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinPass™ - Version 1: Plain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0066cc;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0 40px;
+        }
+        
+        .stat {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 40px;
+            font-style: italic;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+        
+        h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        /* Application Cards */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .app-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .app-card h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        /* Benefits List */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-item {
+            padding: 20px;
+        }
+        
+        .benefit-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            background: #667eea;
+            color: white;
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            color: white;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; }
+            .hero h2 { font-size: 24px; }
+            .two-col { grid-template-columns: 1fr; }
+            h2 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SkinPass™</div>
+            <ul>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#advantages">Advantages</a></li>
+                <li><a href="#licensing">Licensing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>SkinPass™</h1>
+            <h2>The Future of Topical Delivery</h2>
+            <p style="font-size: 22px; max-width: 800px; margin: 0 auto;">Patented technology that delivers active ingredients 10,000 times faster than water can penetrate skin.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">10,000x</div>
+                    <div class="stat-label">Faster than water</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Minutes</div>
+                    <div class="stat-label">To therapeutic effect</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Patented</div>
+                    <div class="stat-label">US Patent granted</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Deeper</div>
+                    <div class="stat-label">Tissue penetration</div>
+                </div>
+            </div>
+            
+            <a href="#technology" class="cta-button">Learn How It Works</a>
+            
+            <div class="disclaimer">
+                *Claims supported by SkinPass™ Patented Technology (US Patent No. XXXXXXX).<br>
+                Statements relate to mechanism of SkinPass™ delivery system, not the active ingredient.
+            </div>
+        </div>
+    </div>
+
+    <!-- What is SkinPass -->
+    <section>
+        <div class="container">
+            <div class="intro">
+                <h2>What is SkinPass?</h2>
+                <p>SkinPass™ is a breakthrough transdermal drug delivery system that changes how topical treatments work.</p>
+                <p>Traditional topicals sit on skin's surface. SkinPass uses both physical and chemical mechanisms to rapidly transport active ingredients through the skin barrier into deeper tissue where they're needed.</p>
+                <p><strong>The result:</strong> Faster action, deeper delivery, enhanced efficacy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Technology -->
+    <section id="technology">
+        <div class="container">
+            <h2>The Technology</h2>
+            
+            <div class="two-col">
+                <div>
+                    <h3>The Challenge</h3>
+                    <p>Skin is designed as a barrier. The stratum corneum blocks most substances from penetrating deeper tissue.</p>
+                </div>
+                <div>
+                    <h3>The SkinPass Solution</h3>
+                    <p>Our DMSO-based carrier system temporarily modulates skin's barrier properties, creating pathways for rapid ingredient transport to deeper tissue layers.</p>
+                </div>
+            </div>
+            
+            <div style="background: #fff; padding: 40px; border-radius: 10px; margin-top: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <h3>How It Works</h3>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 15px; font-size: 18px;"><strong>Barrier Modulation:</strong> Temporarily modifies skin's lipid structure</li>
+                    <li style="margin-bottom: 15px; font-size: 18px;"><strong>Accelerated Transport:</strong> Rapidly shuttles ingredients through skin layers</li>
+                    <li style="margin-bottom: 15px; font-size: 18px;"><strong>Targeted Delivery:</strong> Delivers to deep tissue where needed</li>
+                    <li style="margin-bottom: 15px; font-size: 18px;"><strong>Sustained Action:</strong> Maintains therapeutic concentrations</li>
+                </ol>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #667eea; color: white; border-radius: 10px;">
+                <h3 style="color: white; font-size: 32px;">Validated Performance</h3>
+                <p style="font-size: 20px; color: white;">Independent testing confirms 10,000x faster delivery than water-based penetration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section id="applications">
+        <div class="container">
+            <h2>Applications</h2>
+            <p class="intro">Transforming topical treatment across multiple therapeutic areas</p>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <h4>First Aid & Wound Care</h4>
+                    <p>Delivering antibiotics to infection sites rapidly for faster healing and protection.</p>
+                </div>
+                <div class="app-card">
+                    <h4>Dermatological Conditions</h4>
+                    <p>Enhanced treatment for acne, eczema, psoriasis with faster, deeper delivery.</p>
+                </div>
+                <div class="app-card">
+                    <h4>Infection Control</h4>
+                    <p>Rapid antimicrobial delivery for immediate infection protection.</p>
+                </div>
+                <div class="app-card">
+                    <h4>Pain Management</h4>
+                    <p>Future applications in topical analgesics for non-invasive pain relief.</p>
+                </div>
+                <div class="app-card">
+                    <h4>Chronic Wounds</h4>
+                    <p>Enhanced healing agent delivery for diabetic ulcers and pressure sores.</p>
+                </div>
+                <div class="app-card">
+                    <h4>Specialized Therapeutics</h4>
+                    <p>Expanding into anti-fungal, anti-aging, and targeted therapeutic delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section id="advantages">
+        <div class="container">
+            <h2>Why SkinPass Matters</h2>
+            
+            <div class="benefits">
+                <div class="benefit-item">
+                    <h4>For Pharma Development</h4>
+                    <ul>
+                        <li>Enhance existing active ingredients</li>
+                        <li>Convert oral to topical delivery</li>
+                        <li>Faster market path</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-item">
+                    <h4>For Healthcare Providers</h4>
+                    <ul>
+                        <li>More effective treatments</li>
+                        <li>Improved patient outcomes</li>
+                        <li>Reduced complexity</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-item">
+                    <h4>For Patients</h4>
+                    <ul>
+                        <li>Faster symptom relief</li>
+                        <li>Fewer applications needed</li>
+                        <li>Better outcomes overall</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px; text-align: center;">
+                <h3>Patent Protection</h3>
+                <p>US Patent XXXXXXX granted with additional patents pending</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Licensing -->
+    <section id="licensing">
+        <div class="container">
+            <h2>Partner With Us</h2>
+            <p class="intro">SkinPass™ technology available for licensing to pharmaceutical and biotechnology companies</p>
+            
+            <div class="two-col">
+                <div>
+                    <h3>What We Offer</h3>
+                    <ul style="font-size: 18px; line-height: 1.8;">
+                        <li>Proven, patented technology</li>
+                        <li>Regulatory guidance</li>
+                        <li>Formulation expertise</li>
+                        <li>Market differentiation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Ideal Partners</h3>
+                    <ul style="font-size: 18px; line-height: 1.8;">
+                        <li>Pharmaceutical companies reformulating products</li>
+                        <li>Biotech firms with novel ingredients</li>
+                        <li>Medical device companies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="cta-button">Start a Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section>
+        <div class="container">
+            <h2>About SkinPass</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p>SkinPass™ was developed to solve a fundamental challenge: delivering topical medications effectively beyond skin's surface barrier.</p>
+                <p><strong>Our Mission:</strong> Revolutionize topical drug delivery by making transdermal therapeutic delivery fast, efficient, and accessible.</p>
+                <p><strong>Patent Portfolio:</strong> Protected by US patents with additional applications pending</p>
+                <p><strong>Commitment:</strong> Continuing investment in R&D to expand applications and enhance performance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p style="font-size: 20px; margin: 30px 0;">Ready to explore SkinPass technology for your products?</p>
+                
+                <div style="margin: 40px 0;">
+                    <p><strong>Licensing Inquiries:</strong><br><a href="mailto:licensing@skinpass.com">licensing@skinpass.com</a></p>
+                    <p><strong>Technical Information:</strong><br><a href="mailto:technology@skinpass.com">technology@skinpass.com</a></p>
+                    <p><strong>General Questions:</strong><br><a href="mailto:info@skinpass.com">info@skinpass.com</a></p>
+                </div>
+                
+                <p><strong>Corporate Office</strong><br>Los Angeles, CA, United States</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SkinPass™</h4>
+                    <p>Revolutionizing Topical Delivery</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li><a href="#technology">How It Works</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                        <li><a href="#advantages">Advantages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#licensing">Licensing</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Patent Information</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 SkinPass™. All rights reserved.</p>
+                <p>US Patent XXXXXXX | Additional Patents Pending</p>
+                <p style="font-size: 12px; margin-top: 15px; font-style: italic;">
+                    *Claims supported by SkinPass™ Patented Technology (US Patent No. XXXXXXX).<br>
+                    Statements relate to mechanism of SkinPass™ delivery system, not the active ingredient.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
